@@ -16,9 +16,4 @@ A real-time chat application enabling instant message exchange through native We
 - 💅 **Responsive UI**: Built with TailwindCSS and custom components like `Input`, `Button`, and `ChatBubble` for a modern chat interface.
 - 🔗 **Room Code Sharing**: Enabled room code copying to clipboard and provided instant feedback using `react-hot-toast`.
 
-## 📷 Screenshots
-
-*(Add screenshots here if desired)*
-
-## 📁 Project Structure
 
