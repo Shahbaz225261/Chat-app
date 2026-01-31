@@ -8,6 +8,7 @@ interface msgprops{
     messages:string[];
     wsRefs: React.RefObject<WebSocket | null>;
     inpRef: React.RefObject<HTMLInputElement | null>;
+    roomCode: string;
 }
 
 export function ChatRoom(props: msgprops){
@@ -36,7 +37,7 @@ export function ChatRoom(props: msgprops){
                 <div className="flex gap-2">
                     Room Code:
                     <div ref={ref}>
-                        {props.inpRef.current?.value}
+                         {props.roomCode}
                     </div> 
 
 

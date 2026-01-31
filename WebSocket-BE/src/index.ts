@@ -11,6 +11,7 @@ let allSockets: Users[] = [];
 let connectedUser = 0;
 
 wss.on("connection",(socket: WebSocket)=>{
+    
     socket.on("message",(message)=>{
         const parsedMessage = JSON.parse(message.toString());
         if(parsedMessage.type === "join"){

@@ -7,6 +7,7 @@ import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom"
 // import { ChatRoom } from "./ChatRoom"
 
+
 function generateRoomCode(length = 6): string {
         const chars = "ABCDE2414FGHIJK24141LMNOPQRS214TUVWX3829031240YZabcdefghijklmnopqrstuvwxyz0123456789";
         let code = "";
@@ -20,7 +21,9 @@ export const createcode = generateRoomCode();
 interface RoomProps{
     wsRefs: React.RefObject<WebSocket | null>;
     inpRef: React.RefObject<HTMLInputElement | null>;
+    setRoomCode: (code: string) => void;
 }
+
 
 export function Roomcreation(props: RoomProps){
     const navigate = useNavigate();
@@ -61,12 +64,15 @@ export function Roomcreation(props: RoomProps){
                         return;
                     }
                     const value = props.inpRef.current?.value;
+                    if(value)
+                    props.setRoomCode(value);
                     const payload = JSON.stringify({
                         type: "join",
                         payload: {
                             roomId: value,
                         }
                     });
+                    
                     if (ws.readyState === WebSocket.OPEN) {
                     // Connection is already open, send it
                     ws.send(payload);
